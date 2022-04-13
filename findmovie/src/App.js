@@ -6,13 +6,13 @@ import SearchIcon from './search.svg'
 
 const API_URL = 'http://www.omdbapi.com?apikey=1f866f3f'
 
-const movie1 = {
+/*const movie1 = {
     "Title": "Spiderman",
     "Year": "1990",
     "imdbID": "tt0100669",
     "Type": "movie",
     "Poster": "N/A"
-}
+}*/
 
 const App = () => {
     const [movies, setMovies] = useState([])
@@ -26,11 +26,14 @@ const App = () => {
     }
 
     useEffect(() => {
-        searchMovies('Spiderman')
+        searchMovies('dancing')
     }, [])
+
+
+
     return (
         <div className='app'>
-            <h1>MovieLand</h1>
+            <h1>FindMovie</h1>
 
             <div className='search'>
                 <input
@@ -42,7 +45,9 @@ const App = () => {
                     src={SearchIcon}
                     alt='search'
                     onClick={() => searchMovies(searchTerm)}
+                    
                 />
+
             </div>
 
             {movies?.length > 0
