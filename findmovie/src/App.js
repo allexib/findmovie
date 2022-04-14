@@ -4,7 +4,7 @@ import MovieCard from './MovieCard'
 import './App.css'
 import SearchIcon from './search.svg'
 
-const API_URL = 'http://www.omdbapi.com?apikey=1f866f3f'
+const API_URL = 'https://www.omdbapi.com?apikey=1f866f3f'
 
 /*const movie1 = {
     "Title": "Spiderman",
@@ -29,6 +29,11 @@ const App = () => {
         searchMovies('dancing')
     }, [])
 
+    const onKeyPress = (e) => {
+        if(e.which === 13) {
+            searchMovies(searchTerm);
+        }
+    }
 
 
     return (
@@ -40,12 +45,14 @@ const App = () => {
                     placeholder='Search for movies'
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+
                 />
                 <img
                     src={SearchIcon}
                     alt='search'
                     onClick={() => searchMovies(searchTerm)}
-                    
+                    /*onKeyPress={(e) => e.key === 'Enter' && searchMovies(searchTerm)}*/
+                    onKeyPress={onKeyPress}
                 />
 
             </div>
